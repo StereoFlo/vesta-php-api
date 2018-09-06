@@ -1,0 +1,31 @@
+{
+    "name": "stereoflo/vesta-php-api",
+    "description": "Manage you Vesta server with php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "StereoFlo",
+            "email": "stereoflo@stereoflo.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "VestaApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    }
+}
