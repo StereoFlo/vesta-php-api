@@ -52,7 +52,19 @@ abstract class AbstractCommand implements CommandInterface
     }
 
     /**
+     * @param array $params
+     *
      * @return array
      */
-    abstract public function toArray(): array ;
+    public function toArray(array $params = []): array
+    {
+        $data['cmd'] = static::getCommand();
+        if (static::getReturnCode()) {
+            $data['returncode'] = static::getReturnCode();
+        }
+        foreach ($params as $key => $param) {
+            $data = array_merge($data, ['arg' . ($key + 1) => $param]);
+        }
+        return $data;
+    }
 }

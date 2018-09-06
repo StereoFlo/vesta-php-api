@@ -55,17 +55,17 @@ class AddDatabase extends AbstractCommand
     }
 
     /**
+     * @param array $params
+     *
      * @return array
      */
-    public function toArray(): array
+    public function toArray(array $params = []): array
     {
-        return [
-            'cmd'        => $this->command,
-            'returncode' => $this->returnCode,
-            'arg1'       => $this->username,
-            'arg2'       => $this->dbName,
-            'arg3'       => $this->dbUser,
-            'arg4'       => $this->dbPassword,
-        ];
+        return parent::toArray([
+            $this->username,
+            $this->dbName,
+            $this->dbUser,
+            $this->dbPassword,
+        ]);
     }
 }
